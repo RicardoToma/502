@@ -1,0 +1,31 @@
+<?php
+
+namespace Curso\Loja\Produto;
+
+require './vendor/autoload.php';
+
+use Curso\Loja\Carrinho\Carrinho;
+use Curso\Loja\Produto\{Produto, MaiorEMenor};
+use PHPUnit\Framework\TestCase;
+
+class MaiorEMenorTest extends TestCase
+{
+    public function testOrdemaleAleatorio()
+    {
+        $carrinho = new Carrinho;
+
+        $carrinho->addItem(new Produto('Sound bar', 650), 1);
+        $carrinho->addItem(new Produto('TV', 2500), 1);
+        $carrinho->addItem(new Produto('suporte TV', 125), 1);
+        
+        $maiorMenor = new MaiorEMenor;
+        $maiorMenor->encontra($carrinho);
+
+        $this->assertEquals('Suporte TV',
+                             $maiorMenor->getMenor()->getNome());
+        $this->assertEquals('TV',
+                            $maiorMenor->getMaior()->getNome());
+    }
+
+    
+}

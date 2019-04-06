@@ -4,7 +4,7 @@
     },
     "autoload" :{
         "psr-4" : {
-            "Curso\\Loja" : [
+            "Curso\\Loja\\" : [
                 "src/Curso/Loja",
                 "tests/Curso/Loja"
             ]
