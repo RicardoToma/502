@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class MaiorEMenorTest extends TestCase
 {
-    public function testOrdemaleAleatorio()
+    public function testOrdemAleatorio()
     {
         $carrinho = new Carrinho;
 
@@ -27,5 +27,20 @@ class MaiorEMenorTest extends TestCase
                             $maiorMenor->getMaior()->getNome());
     }
 
-    
+    public function testOrdemDescrescente()
+    {
+        $carrinho = new Carrinho;
+
+        $carrinho->addItem(new Produto('TV', 2500), 1);
+        $carrinho->addItem(new Produto('Sound bar', 650), 1);
+        $carrinho->addItem(new Produto('suporte TV', 125), 1);
+
+        $maiorMenor = new MaiorEMenor;
+        $maiorMenor->econtra($carrinho);
+
+        $this->assertEquals('Suporte TV',
+                             $maiorMenor->getMenor()->getNome());
+        $this->assertEquals('TV',
+                            $maiorMenor->getMaior()->getNome());
+    }
 }

@@ -9,6 +9,8 @@
                 "tests/Curso/Loja"
             ]
         }
+    },
+    "require": {
+        "monolog/monolog": "^1.24"
     }
 }
-

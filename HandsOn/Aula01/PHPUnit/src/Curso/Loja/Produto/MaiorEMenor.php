@@ -16,7 +16,9 @@ class MaiorEMenor
             || $item->getProduto()->getPreco() < $this->menor->getPreco())
             {
                 $this->menor = $item->getProduto();
-            } else if (empty($this->maior)
+            } 
+            
+            if (empty($this->maior)
             || $item->getProduto()->getPreco() > $this->maior->getPreco())
             {
                 $this->maior = $item->getProduto();
