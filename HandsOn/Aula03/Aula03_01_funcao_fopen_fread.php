@@ -4,6 +4,7 @@
 $stream = fopen('emails.txt', 'r'); 
 
 // Faz a leitura do arquivo na quantidade de bytes especificada
+// nl2br -> transforma quebra de linha no texto em br no html
 echo nl2br(fread($stream, 45));
 
 // Fecha o stream liberando o arquivo
@@ -27,7 +28,7 @@ while (($pedaco = fread($stream2, 45)) != false) {
 
 fclose($stream2);
 
-echo '<br>';
+echo '<hr>';
 
 $stream3 = fopen('emails.txt', 'r');
 
