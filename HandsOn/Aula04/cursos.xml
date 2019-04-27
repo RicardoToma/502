@@ -3,21 +3,26 @@
     <curso>
         <id>4500</id>
         <nome>Desenvolvimento Web com PHP</nome>
-        <categoria>PHP Básico</categoria>
-    </curso>
+        <categoria>PHP Básico 2</categoria>
+   <carga_horaria>40</carga_horaria></curso>
     <curso>
         <id>4501</id>
         <nome>Desenvolvimento Orientado a Objeto com PHP</nome>
-        <categoria>Orientação a Objetos</categoria>
-    </curso>
+        <categoria>Orientação a Objetos 2</categoria>
+   <carga_horaria>45</carga_horaria></curso>
     <curso>
         <id>4502</id>
         <nome>Desenvolvimento Enterprise com PHP</nome>
-        <categoria>PHP Enterprise</categoria>
-    </curso>
+        <categoria>PHP Enterprise 2</categoria>
+   <carga_horaria>36</carga_horaria></curso>
     <curso>
         <id>4505</id>
         <nome>Linux Fundamentals in Cloud</nome>
         <categoria>Linux</categoria>
-    </curso>
+   <carga_horaria/></curso>
+    <curso>
+        <id>4452</id>
+        <nome>Linux Security in Cloud</nome>
+        <categoria>Linux</categoria>
+    <carga_horaria>50</carga_horaria></curso>
 </cursos>
