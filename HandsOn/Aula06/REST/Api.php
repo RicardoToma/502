@@ -7,6 +7,7 @@ $alunos = new Alunos();
 $dados = json_decode(file_get_contents('php://input'),
                                        true);
 
+
 $verbo = $_SERVER['REQUEST_METHOD'];
 
 switch ($verbo) { 
@@ -19,9 +20,9 @@ switch ($verbo) {
             $resposta = $alunos->listar();
         }
 
-        if(!resposta) {
+        if(!$resposta) {
             header('HTTP/1.1 204');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados não encontrado!'
             ]);
@@ -31,14 +32,14 @@ switch ($verbo) {
         // Enviando Status Code
         header('HTTP/1.1. 200');
         // Enviando Tipo de conteudo
-        header('Content-Type: text/json');
+        header('Content-Type: application/json');
         echo json_encode($resposta);
 
         break;
     case 'POST':
         if(!$dados) {
             header('HTTP/1.1 400');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados não enviados !'
             ]);
@@ -47,7 +48,7 @@ switch ($verbo) {
 
         if($alunos->inserir($dados)) {
             header('HTTP/1.1 200');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados Salvos !'
             ]);
@@ -58,7 +59,7 @@ switch ($verbo) {
     case 'PUT':
         if(!$dados) {
             header('HTTP/1.1 400');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados não enviados !'
             ]);
@@ -67,7 +68,7 @@ switch ($verbo) {
 
         if($alunos->alterar($dados)) {
             header('HTTP/1.1 200');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados Alterados !'
             ]);
@@ -79,7 +80,7 @@ switch ($verbo) {
 
         if(!$id) {
             header('HTTP/1.1 400');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados não enviados !'
             ]);
@@ -88,7 +89,7 @@ switch ($verbo) {
 
         if($alunos->excluir($id)) {
             header('HTTP/1.1 200');
-            header('Content-Type: text/json');
+            header('Content-Type: application/json');
             echo json_encode([
                 'resposta' => 'Dados Excluidos !'
             ]);
@@ -96,3 +97,7 @@ switch ($verbo) {
 
         break;
 }
+
+
+// URL para teste
+// chrome-extension://aejoelaoggembcahagimdiliamlcdmfm/restlet_client.html

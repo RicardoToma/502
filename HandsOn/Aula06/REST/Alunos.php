@@ -1,14 +1,14 @@
 <?php
 
 class Alunos{
-    private $dsn  = 'pgsql:host=localhost;dbname=aula06';
+    private $dsn  = 'pgsql:host=localhost;
+                     dbname=aula06';
     private $user = 'aula06';
     private $pass = '123456';
     private $conn;
 
     public function __construct() {
-        $this->conn = new PDO($this->dsn, $this->user,
-                              $this->pass);
+        $this->conn = new PDO($this->dsn, $this->user,$this->pass);
     }
 
     public function inserir(array $dados)
