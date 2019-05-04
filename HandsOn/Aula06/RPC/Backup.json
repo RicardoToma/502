@@ -1,0 +1,42 @@
+{
+  "front-version": "2.19.2",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost",
+        "path": "/502/HandsOn/Aula06/RPC/Api.php"
+      },
+      "id": "1ce4c6f4-b4e4-4d8c-bdd0-f6aa97d5503a",
+      "lastModified": "2019-05-04T10:39:07.398-03:00",
+      "name": "Teste API RPC",
+      "headers": [],
+      "metaInfo": {
+        "ownerId": null
+      }
+    }
+  ]
+}
