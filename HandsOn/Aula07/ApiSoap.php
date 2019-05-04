@@ -3,7 +3,7 @@
     Esta linha permanece somente durante os Teste,
     desabilita o cache SOAP
 */
-ini_set('spoa.wsdk_cache_enabled', '0');
+ini_set('soap.wsdl_cache_enabled', '0');
 
 require 'Alunos.php';
 
