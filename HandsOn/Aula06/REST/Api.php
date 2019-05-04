@@ -42,14 +42,57 @@ switch ($verbo) {
             echo json_encode([
                 'resposta' => 'Dados não enviados !'
             ]);
+            exit;
         }
 
         if($alunos->inserir($dados)) {
             header('HTTP/1.1 200');
             header('Content-Type: text/json');
             echo json_encode([
-
-
+                'resposta' => 'Dados Salvos !'
             ]);
         }
+
+        break;
+    
+    case 'PUT':
+        if(!$dados) {
+            header('HTTP/1.1 400');
+            header('Content-Type: text/json');
+            echo json_encode([
+                'resposta' => 'Dados não enviados !'
+            ]);
+            exit;
+        }
+
+        if($alunos->alterar($dados)) {
+            header('HTTP/1.1 200');
+            header('Content-Type: text/json');
+            echo json_encode([
+                'resposta' => 'Dados Alterados !'
+            ]);
+        }
+
+        break;
+    case 'DELETE':
+        $id = $_GET['id'] ?? null;
+
+        if(!$id) {
+            header('HTTP/1.1 400');
+            header('Content-Type: text/json');
+            echo json_encode([
+                'resposta' => 'Dados não enviados !'
+            ]);
+            exit;
+        }
+
+        if($alunos->excluir($id)) {
+            header('HTTP/1.1 200');
+            header('Content-Type: text/json');
+            echo json_encode([
+                'resposta' => 'Dados Excluidos !'
+            ]);
+        }
+
+        break;
 }
