@@ -7,7 +7,8 @@ class Teste
     private $senha = '123456';
     private $conexao;
 
-    public function __construct() {
+    public function __construct() 
+    {
         try{
             $this->conexao = new PDO($this->dsn, $this->usuario,
                                      $this->senha);
@@ -16,26 +17,32 @@ class Teste
         }
     }
 
-    public function inserir($dados){
+    public function inserir($dados)
+    {
         try {
             $query = "INSERT INTO teste (campo) VALUES (:dados)";
-            //$query = "INSERT INTO teste (campo) VALUES ('$dados')";
+            // $query = "INSERT INTO teste (campo) VALUES ('$dados')";
 
             $stmt = $this->conexao->prepare($query);
 
-            $stmt->bindParam(':dados', $dados, PDO:: PARAM_STR, 255);
+            $stmt->bindParam(':dados', $dados, PDO::PARAM_STR, 255);
 
             return $stmt->execute();
-            //return $this->conexao->exec($query);
+            // return $this->conexao->exec($query);
         } catch(PDOExcetion $e) {
             return $e->getMessage();
         }
     }
 
-    public function listar() {
+    public function listar() 
+    {
+        try{
+            $query = "SELECT * FROM teste";
+            $pdoSt = $this->conexao->query($query);
 
-        
+            return $pdoSt->fetchAll(PDO::FETCH_ASSOC);
+        } catch(PDOException $e) {
+            return $e->getMessage();
+        }
     }
-
-
 }

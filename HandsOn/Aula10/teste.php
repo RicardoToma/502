@@ -10,7 +10,7 @@ foreach($_POST as $campo => $dado) {
     $$campo = limpaDados($dado);
 }
 
-if($token != $SESSION['token']) {
+if($token != $_SESSION['token']) {
     echo 'Token Inválido!';
     exit;
 }
